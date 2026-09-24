@@ -19,9 +19,7 @@ def detection_summary(detections):
     results["Unique objects are"] = len(unique)
 
     # highest confidence
-    for det in detections:
-        high = det["confidence"]
-        break
+    high = detections[0]["confidence"]
 
     for detection in detections:
         if detection["confidence"] > high:
@@ -30,10 +28,8 @@ def detection_summary(detections):
     results["Highest confidence"] = high
 
     #lowest confidence 
-    for det in detections:
-        low = det["confidence"]
-        break
-
+    low = detections[0]["confidence"]
+    
     for detection in detections:
         if detection["confidence"] < low:
             low = detection["confidence"]
